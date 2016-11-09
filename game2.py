@@ -214,6 +214,7 @@ def game(crashed):
         for black in black_list:
             if pygame.sprite.spritecollide(black, new_list, True):
                 all_sprites_list.add(player)
+                gameover(crashed)
                 crashed = False
                 return crashed
         texts(score)
@@ -280,10 +281,7 @@ def main():
     crashed = True
     start_screen()
     game(crashed)
-    crashed = game(crashed)
-    for i in range(100):
-        if not crashed:
-            gameover(crashed)
+    
 
 
     pygame.quit
